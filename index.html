@@ -5,9 +5,10 @@
 <title>Mi Pensum Ingeniería Industrial</title>
 
 <style>
+
 body{
 font-family: Arial, sans-serif;
-background:#fff0f5;
+background:#fff0f6;
 margin:20px;
 }
 
@@ -16,10 +17,15 @@ text-align:center;
 color:#c2185b;
 }
 
+h2{
+color:#ad1457;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:20px;
+margin-top:20px;
 }
 
 .semestre{
@@ -30,19 +36,14 @@ box-shadow:0 4px 10px rgba(0,0,0,0.1);
 border-left:8px solid #f48fb1;
 }
 
-.semestre h2{
-color:#ad1457;
-}
-
 table{
 width:100%;
 border-collapse:collapse;
 }
 
 th,td{
-border-bottom:1px solid #eee;
 padding:6px;
-text-align:left;
+border-bottom:1px solid #eee;
 }
 
 th{
@@ -57,36 +58,74 @@ color:#880e4f;
 
 .contador{
 position:fixed;
-top:10px;
+top:15px;
 right:20px;
 background:white;
-padding:10px 20px;
+padding:12px 20px;
 border-radius:10px;
 box-shadow:0 3px 8px rgba(0,0,0,0.2);
 font-size:18px;
 color:#c2185b;
 }
 
+.homologadas{
+background:white;
+border-radius:10px;
+padding:15px;
+margin-bottom:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-left:8px solid #ec407a;
+}
+
 input[type=checkbox]{
 transform:scale(1.2);
 accent-color:#ec407a;
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
 <h1>Mi Pensum - Ingeniería Industrial</h1>
 
 <div class="contador">
-Créditos completados: <span id="totalCreditos">0</span>
+Créditos completados: <span id="totalCreditos">31</span>
 </div>
+
+<div class="homologadas">
+<h2>Materias Homologadas</h2>
+
+<table>
+<tr><th>Materia</th><th>Créditos</th></tr>
+
+<tr><td>Expresión Gráfica</td><td>3</td></tr>
+<tr><td>Proyecto Escuela</td><td>3</td></tr>
+<tr><td>Física 1</td><td>3</td></tr>
+<tr><td>Cálculo 1</td><td>3</td></tr>
+<tr><td>Cálculo 2</td><td>3</td></tr>
+<tr><td>Álgebra Lineal</td><td>3</td></tr>
+<tr><td>Cálculo 3</td><td>3</td></tr>
+<tr><td>Pensamiento Computacional</td><td>3</td></tr>
+<tr><td>Ciudadanía y Democracia</td><td>3</td></tr>
+<tr><td>Imaginación y Creatividad</td><td>3</td></tr>
+<tr><td>Inducción y Bienestar Universitario</td><td>1</td></tr>
+
+</table>
+
+<div class="creditos">
+Créditos homologados: 31
+</div>
+</div>
+
 
 <div class="grid">
 
 <div class="semestre">
 <h2>2026-1 (En curso)</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="3"></td><td>Física 2</td><td>3</td></tr>
@@ -97,12 +136,14 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="3"></td><td>Análisis y Procesamiento de Datos</td><td>3</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 18</div>
+
 </div>
 
 <div class="semestre">
 <h2>2026-2</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="3"></td><td>Sistemas y Mercados Eléctricos</td><td>3</td></tr>
@@ -112,12 +153,14 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="3"></td><td>Administración de Operaciones</td><td>3</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 15</div>
+
 </div>
 
 <div class="semestre">
 <h2>2027-1</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="3"></td><td>Investigación de Operaciones</td><td>3</td></tr>
@@ -127,12 +170,14 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="3"></td><td>Gestión de Tecnología e Innovación</td><td>3</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 15</div>
+
 </div>
 
 <div class="semestre">
 <h2>2027-2</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="3"></td><td>Procesos Estocásticos</td><td>3</td></tr>
@@ -142,12 +187,14 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="3"></td><td>Gestión Humana</td><td>3</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 15</div>
+
 </div>
 
 <div class="semestre">
 <h2>2028-1</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 1 - Curso 1</td><td>3</td></tr>
@@ -158,23 +205,27 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="0"></td><td>Pre-práctica</td><td>0</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 15</div>
+
 </div>
 
 <div class="semestre">
 <h2>2028-2</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="18"></td><td>Práctica Profesional</td><td>18</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 18</div>
+
 </div>
 
 <div class="semestre">
 <h2>2029-1</h2>
+
 <table>
+
 <tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
 <tr><td><input type="checkbox" data-credit="12"></td><td>Línea de Énfasis</td><td>12</td></tr>
@@ -184,7 +235,7 @@ Créditos completados: <span id="totalCreditos">0</span>
 <tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 2 - Proyecto</td><td>3</td></tr>
 
 </table>
-<div class="creditos">Total semestre: 24</div>
+
 </div>
 
 </div>
@@ -194,9 +245,11 @@ Créditos completados: <span id="totalCreditos">0</span>
 const checkboxes = document.querySelectorAll("input[type=checkbox]");
 const total = document.getElementById("totalCreditos");
 
+let baseCreditos = 31;
+
 function actualizarCreditos(){
 
-let suma = 0;
+let suma = baseCreditos;
 
 checkboxes.forEach(cb=>{
 if(cb.checked){
