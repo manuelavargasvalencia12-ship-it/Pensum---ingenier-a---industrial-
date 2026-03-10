@@ -1,127 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>Pensum Ingeniería Industrial</title>
 
-<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-
 <style>
+
 body{
 font-family: Arial;
-background:#f5f5f5;
+background:#f4f6f8;
 margin:0;
-padding:20px;
+padding:30px;
 }
 
-#network{
-width:100%;
-height:90vh;
-border:1px solid lightgray;
-background:white;
+h1{
+text-align:center;
 }
+
+.grid{
+display:grid;
+grid-template-columns: repeat(6, 1fr);
+gap:20px;
+}
+
+.semester{
+background:white;
+border-radius:8px;
+padding:15px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.semester h2{
+text-align:center;
+font-size:16px;
+margin-bottom:10px;
+}
+
+.course{
+background:#e3ecff;
+padding:10px;
+margin-bottom:8px;
+border-radius:6px;
+font-size:14px;
+}
+
+.course.done{
+background:#b8f2c2;
+}
+
+.course.current{
+background:#a8d8ff;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<h2>Pensum Ingeniería Industrial EAFIT</h2>
-<p>Diagrama interactivo de materias y prerrequisitos</p>
+<h1>Pensum Ingeniería Industrial</h1>
 
-<div id="network"></div>
+<div class="grid">
 
-<script>
+<div class="semester">
+<h2>2026-1</h2>
 
-const nodes = new vis.DataSet([
+<div class="course current">Física 2</div>
+<div class="course current">Probabilidad y Estadística</div>
+<div class="course current">Análisis y Procesamiento de Datos</div>
+<div class="course current">Información Financiera</div>
+<div class="course current">Materiales para Ingeniería</div>
+<div class="course current">NFI 4</div>
 
-{ id:1, label:"Probabilidad y Estadística"},
-{ id:2, label:"Procesos Estocásticos"},
-{ id:3, label:"Investigación de Operaciones"},
-{ id:4, label:"Administración de Operaciones"},
-{ id:5, label:"Cadena de Suministro"},
-{ id:6, label:"Fundamentos de Analítica"},
-{ id:7, label:"Analítica Visual"},
-{ id:8, label:"Análisis y Procesamiento de Datos"},
-{ id:9, label:"Información Financiera"},
-{ id:10, label:"Fundamentos de Finanzas"},
-{ id:11, label:"Materiales para Ingeniería"},
-{ id:12, label:"Ingeniería de Manufactura"},
-{ id:13, label:"Física 2"},
-{ id:14, label:"Sistemas y Mercados Eléctricos"},
-{ id:15, label:"Gestión Humana"},
-{ id:16, label:"Excelencia Operacional"},
-{ id:17, label:"Gestión Tecnología e Innovación"},
-{ id:18, label:"Trayectoria Analítica 1"},
-{ id:19, label:"Trayectoria Analítica 2"},
-{ id:20, label:"Trayectoria Analítica 3"},
-{ id:21, label:"Proyecto Trayectoria Analítica"},
-{ id:22, label:"Trayectoria Finanzas 1"},
-{ id:23, label:"Trayectoria Finanzas 2"},
-{ id:24, label:"Trayectoria Finanzas 3"},
-{ id:25, label:"Proyecto Trayectoria Finanzas"},
-{ id:26, label:"Proyecto Ingeniería Industrial"},
-{ id:27, label:"Pre-práctica"},
-{ id:28, label:"Práctica"}
+</div>
 
-]);
+<div class="semester">
+<h2>2026-2</h2>
 
-const edges = new vis.DataSet([
+<div class="course">Sistemas y Mercados Eléctricos</div>
+<div class="course">Ecuaciones Diferenciales</div>
+<div class="course">Ingeniería de Manufactura</div>
+<div class="course">Administración de Operaciones</div>
+<div class="course">NFI 5</div>
 
-{from:1, to:2},
-{from:1, to:3},
-{from:4, to:5},
-{from:8, to:6},
-{from:6, to:7},
-{from:9, to:10},
-{from:11, to:12},
-{from:13, to:14},
+</div>
 
-{from:5, to:18},
-{from:18, to:19},
-{from:19, to:20},
-{from:20, to:21},
+<div class="semester">
+<h2>2027-1</h2>
 
-{from:10, to:22},
-{from:22, to:23},
-{from:23, to:24},
-{from:24, to:25},
+<div class="course">Investigación de Operaciones</div>
+<div class="course">Seguridad y Salud en el Trabajo</div>
+<div class="course">Gestión Humana</div>
+<div class="course">Fundamentos de Finanzas</div>
+<div class="course">Excelencia Operacional</div>
 
-{from:21, to:26},
-{from:25, to:26},
+</div>
 
-{from:26, to:27},
-{from:27, to:28}
+<div class="semester">
+<h2>2027-2</h2>
 
-]);
+<div class="course">Procesos Estocásticos</div>
+<div class="course">Fundamentos de Analítica</div>
+<div class="course">Analítica Visual</div>
+<div class="course">Administración de la Cadena de Suministro</div>
+<div class="course">Gestión de Tecnología e Innovación</div>
 
-const container = document.getElementById("network");
+</div>
 
-const data = {
-nodes: nodes,
-edges: edges
-};
+<div class="semester">
+<h2>2028-1</h2>
 
-const options = {
+<div class="course">Trayectoria Analítica Curso 1</div>
+<div class="course">Trayectoria Analítica Curso 2</div>
+<div class="course">Trayectoria Finanzas Curso 1</div>
+<div class="course">Trayectoria Finanzas Curso 2</div>
+<div class="course">Proyecto Ingeniería Industrial</div>
+<div class="course">Pre-práctica</div>
 
-nodes:{
-shape:"box",
-margin:10,
-font:{size:16}
-},
+</div>
 
-edges:{
-arrows:"to"
-},
+<div class="semester">
+<h2>2028-2</h2>
 
-physics:{
-enabled:true
-}
+<div class="course">Práctica Profesional (18 créditos)</div>
 
-};
+</div>
 
-new vis.Network(container,data,options);
-
-</script>
+</div>
 
 </body>
 </html>
