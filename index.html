@@ -1,254 +1,218 @@
-```html
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Mi Pensum Personal - Ingeniería Industrial</title>
+<title>Mi Pensum Ingeniería Industrial</title>
 
 <style>
-
 body{
-font-family: Arial;
-background:#fff0f6;
-margin:0;
-padding:30px;
+font-family: Arial, sans-serif;
+background:#fff0f5;
+margin:20px;
 }
 
 h1{
 text-align:center;
-color:#b03060;
-}
-
-.stats{
-text-align:center;
-margin-bottom:25px;
-font-size:18px;
-color:#8b004f;
+color:#c2185b;
 }
 
 .grid{
 display:grid;
-grid-template-columns: repeat(7, 1fr);
-gap:15px;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
 }
 
-.semester{
-background:#ffd6e7;
-padding:10px;
-border-radius:8px;
+.semestre{
+background:white;
+border-radius:10px;
+padding:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-left:8px solid #f48fb1;
 }
 
-.semester h3{
-text-align:center;
-color:#8b004f;
-font-size:16px;
+.semestre h2{
+color:#ad1457;
 }
 
-.course{
-background:#ffb3d1;
-padding:8px;
-margin:6px 0;
-border-radius:6px;
-cursor:pointer;
-font-size:13px;
-transition:0.2s;
+table{
+width:100%;
+border-collapse:collapse;
 }
 
-.course:hover{
-background:#ff8fb8;
+th,td{
+border-bottom:1px solid #eee;
+padding:6px;
+text-align:left;
 }
 
-.locked{
-background:#e0e0e0;
-color:#777;
-cursor:not-allowed;
+th{
+color:#c2185b;
 }
 
-.completed{
-background:#ff4fa3;
-color:white;
+.creditos{
+margin-top:10px;
+font-weight:bold;
+color:#880e4f;
 }
 
-.homologada{
-background:#ff77b7;
-color:white;
-cursor:default;
+.contador{
+position:fixed;
+top:10px;
+right:20px;
+background:white;
+padding:10px 20px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+font-size:18px;
+color:#c2185b;
 }
 
-.current{
-background:#ffc2dd;
+input[type=checkbox]{
+transform:scale(1.2);
+accent-color:#ec407a;
 }
-
 </style>
-</head>
 
+</head>
 <body>
 
-<h1>Mi Pensum Personal – Ingeniería Industrial</h1>
+<h1>Mi Pensum - Ingeniería Industrial</h1>
 
-<div class="stats">
-Créditos completados: <span id="credits">0</span> |
-Progreso carrera: <span id="progress">0%</span>
+<div class="contador">
+Créditos completados: <span id="totalCreditos">0</span>
 </div>
 
 <div class="grid">
 
-<!-- SEMESTRE HOMOLOGADO -->
+<div class="semestre">
+<h2>2026-1 (En curso)</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2024-2 / 2025-1<br>Homologadas</h3>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Física 2</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Información Financiera y de Costos</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Estilos de Vida Sostenible (NFI 4)</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Materiales para Ingeniería</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Probabilidad y Estadística</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Análisis y Procesamiento de Datos</td><td>3</td></tr>
 
-<div class="course homologada completed" id="calc1" data-credits="3">Cálculo 1</div>
-<div class="course homologada completed" id="calc2" data-credits="3">Cálculo 2</div>
-<div class="course homologada completed" id="calc3" data-credits="3">Cálculo 3</div>
-<div class="course homologada completed" id="algebra" data-credits="3">Álgebra Lineal</div>
-<div class="course homologada completed" id="fis1" data-credits="3">Física 1</div>
-<div class="course homologada completed" id="pc" data-credits="3">Pensamiento Computacional</div>
-<div class="course homologada completed" id="exp" data-credits="2">Expresión Gráfica</div>
-<div class="course homologada completed" id="proyEsc" data-credits="2">Proyecto Escuela</div>
-<div class="course homologada completed" data-credits="2">Trayectoria Flexible 1</div>
-<div class="course homologada completed" data-credits="2">Trayectoria Flexible 2</div>
-<div class="course homologada completed" data-credits="2">Trayectoria Flexible 3</div>
-<div class="course homologada completed" data-credits="2">Trayectoria Flexible 4</div>
-<div class="course homologada completed" data-credits="2">Ciudadanía y Democracia</div>
-<div class="course homologada completed" data-credits="2">Imaginación y Creatividad</div>
-<div class="course homologada completed" data-credits="1">Bienestar Universitario</div>
-
+</table>
+<div class="creditos">Total semestre: 18</div>
 </div>
 
-<!-- SEMESTRE ACTUAL -->
+<div class="semestre">
+<h2>2026-2</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2026-1<br>Semestre actual</h3>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Sistemas y Mercados Eléctricos</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Ingeniería de la Manufactura</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Ecuaciones Diferenciales</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>NFI 5</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Administración de Operaciones</td><td>3</td></tr>
 
-<div class="course current" id="fis2" data-prereq="fis1" data-credits="3">Física 2</div>
-<div class="course current" id="prob" data-prereq="calc2" data-credits="3">Probabilidad y Estadística</div>
-<div class="course current" id="datos" data-prereq="pc" data-credits="3">Análisis y Procesamiento de Datos</div>
-<div class="course current" id="infoFin" data-credits="3">Información Financiera</div>
-<div class="course current" id="matIng" data-credits="3">Materiales para Ingeniería</div>
-<div class="course current" data-credits="2">NFI 4</div>
-
+</table>
+<div class="creditos">Total semestre: 15</div>
 </div>
 
-<!-- 2026-2 -->
+<div class="semestre">
+<h2>2027-1</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2026-2</h3>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Investigación de Operaciones</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Seguridad y Salud en el Trabajo</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Fundamentos de Finanzas</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Excelencia Operacional</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Gestión de Tecnología e Innovación</td><td>3</td></tr>
 
-<div class="course locked" id="sistElec" data-prereq="fis2" data-credits="3">Sistemas y Mercados Eléctricos</div>
-<div class="course locked" id="ed" data-prereq="calc3" data-credits="3">Ecuaciones Diferenciales</div>
-<div class="course locked" id="manuf" data-prereq="matIng" data-credits="3">Ingeniería de Manufactura</div>
-<div class="course" id="admOps" data-credits="3">Administración de Operaciones</div>
-
+</table>
+<div class="creditos">Total semestre: 15</div>
 </div>
 
-<!-- 2027-1 -->
+<div class="semestre">
+<h2>2027-2</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2027-1</h3>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Procesos Estocásticos</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Fundamentos de Analítica</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Analítica Visual</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Administración Cadena de Suministro</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Gestión Humana</td><td>3</td></tr>
 
-<div class="course locked" id="invOps" data-prereq="prob" data-credits="3">Investigación de Operaciones</div>
-<div class="course" data-credits="3">Seguridad y Salud en el Trabajo</div>
-<div class="course" data-credits="3">Gestión Humana</div>
-<div class="course locked" id="finanzas" data-prereq="infoFin" data-credits="3">Fundamentos de Finanzas</div>
-
+</table>
+<div class="creditos">Total semestre: 15</div>
 </div>
 
-<!-- 2027-2 -->
+<div class="semestre">
+<h2>2028-1</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2027-2</h3>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 1 - Curso 1</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 1 - Curso 2</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 2 - Curso 1</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 2 - Curso 2</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Proyecto Ingeniería Industrial</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="0"></td><td>Pre-práctica</td><td>0</td></tr>
 
-<div class="course locked" id="estoc" data-prereq="prob" data-credits="3">Procesos Estocásticos</div>
-<div class="course locked" id="fundAnalitica" data-prereq="datos" data-credits="3">Fundamentos de Analítica</div>
-<div class="course locked" data-prereq="fundAnalitica" data-credits="3">Analítica Visual</div>
-<div class="course locked" id="cadena" data-prereq="admOps" data-credits="3">Administración Cadena de Suministro</div>
-
+</table>
+<div class="creditos">Total semestre: 15</div>
 </div>
 
-<!-- 2028-1 -->
+<div class="semestre">
+<h2>2028-2</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2028-1</h3>
+<tr><td><input type="checkbox" data-credit="18"></td><td>Práctica Profesional</td><td>18</td></tr>
 
-<div class="course locked" data-prereq="cadena" data-credits="3">Analítica Cadena de Suministro</div>
-<div class="course locked" data-prereq="finanzas" data-credits="3">Finanzas para la Cadena de Suministro</div>
-<div class="course" data-credits="3">Proyecto Ingeniería Industrial</div>
-<div class="course" data-credits="2">Pre-práctica</div>
-
+</table>
+<div class="creditos">Total semestre: 18</div>
 </div>
 
-<!-- 2028-2 -->
+<div class="semestre">
+<h2>2029-1</h2>
+<table>
+<tr><th></th><th>Materia</th><th>Créditos</th></tr>
 
-<div class="semester">
-<h3>2028-2</h3>
+<tr><td><input type="checkbox" data-credit="12"></td><td>Línea de Énfasis</td><td>12</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 1 - Curso 3</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 1 - Proyecto</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 2 - Curso 3</td><td>3</td></tr>
+<tr><td><input type="checkbox" data-credit="3"></td><td>Trayectoria 2 - Proyecto</td><td>3</td></tr>
 
-<div class="course" data-credits="18">Práctica Profesional</div>
-
+</table>
+<div class="creditos">Total semestre: 24</div>
 </div>
 
 </div>
 
 <script>
 
-const courses = document.querySelectorAll(".course")
-const creditsDisplay = document.getElementById("credits")
-const progressDisplay = document.getElementById("progress")
+const checkboxes = document.querySelectorAll("input[type=checkbox]");
+const total = document.getElementById("totalCreditos");
 
-const TOTAL_CREDITS = 150
+function actualizarCreditos(){
 
-courses.forEach(course => {
+let suma = 0;
 
-course.addEventListener("click", () => {
-
-if(course.classList.contains("locked")) return
-if(course.classList.contains("homologada")) return
-
-course.classList.toggle("completed")
-
-updateUnlocks()
-updateStats()
-
-})
-
-})
-
-function updateUnlocks(){
-
-document.querySelectorAll(".course[data-prereq]").forEach(course => {
-
-const prereq = course.dataset.prereq
-const prereqCourse = document.getElementById(prereq)
-
-if(prereqCourse && prereqCourse.classList.contains("completed")){
-course.classList.remove("locked")
+checkboxes.forEach(cb=>{
+if(cb.checked){
+suma += parseInt(cb.dataset.credit);
 }
+});
 
-})
+total.textContent = suma;
 
 }
 
-function updateStats(){
-
-let credits = 0
-
-document.querySelectorAll(".completed").forEach(course=>{
-credits += parseInt(course.dataset.credits || 0)
-})
-
-creditsDisplay.textContent = credits
-
-let progress = Math.round((credits/TOTAL_CREDITS)*100)
-progressDisplay.textContent = progress + "%"
-
-}
-
-updateUnlocks()
-updateStats()
+checkboxes.forEach(cb=>{
+cb.addEventListener("change",actualizarCreditos);
+});
 
 </script>
 
 </body>
 </html>
-```
-
